@@ -1,13 +1,31 @@
 import "./App.css";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./pages/Root";
 import HomePage from "./pages/HomePage";
-// 여기서는 라우터를 만들어주자 
+import ErrorPage from "./pages/ErrorPage";
+import LoginPage from "./pages/LoginPage";
+
+// 여기서는 라우터를 만들어주자
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    loader: () => {
+      console.log("router loaded");
+      return "123";
+    },
+    children: [
+      { index: true, path: "/", element: <HomePage /> },
+      { path: "/login", element: <LoginPage /> },
+    ],
+  },
+]);
+
 function App() {
-  return (
-    <div className="App">
-      this is for test , it is ? this is for staging branch
-      <HomePage />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
