@@ -13,12 +13,13 @@ import BoardDetailPage from "./pages/BoardDetailPage";
 function App() {
   return (
     <BrowserRouter>
-      <Layout />
       <Routes>
-        <Route path={"/"} element={<HomePage />} />
-        <Route path={"/login"} element={<LoginPage />} />
-        <Route path={"/board"} element={<BoardPage />} />
-        <Route path={"/board/:bno"} element={<BoardDetailPage  />} />
+        <Route element={<Layout />}>
+          <Route path={"/"} element={<HomePage />} />
+          <Route path={"/login"} element={<LoginPage />} />
+          <Route path={"/board"} element={<BoardPage />} />
+          <Route path={"/board/:bno"} element={<BoardDetailPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
