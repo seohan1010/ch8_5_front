@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import classes from "../style/pages_style/boardList.module.css";
 import { useEffect } from "react";
 import { boardListAction } from "../store/slices/boardListReducer";
@@ -24,7 +25,11 @@ const BoardList = () => {
   const list = boardList.map((data: board) => (
     <tr className={classes.tr} key={data.bno}>
       <td className={classes.td}>{data.writer}</td>
-      <td className={classes.td}>{data.title}</td>
+
+      <td className={classes.td}>
+        <Link className={classes.link} to={`/board/${data.bno}`}>{data.title} </Link>
+      </td>
+
       <td className={classes.td}>{data.writeDate}</td>
     </tr>
   ));
