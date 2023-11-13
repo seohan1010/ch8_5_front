@@ -1,0 +1,48 @@
+.table_wrap {
+  margin: auto;
+  border: 1px solid black;
+  margin-top: 50px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+
+.table {
+  align-items: center;
+  width: 800px;
+  height: 600px;
+  margin: 20px;
+  margin-top: 20px;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 30px;
+  text-align: center;
+}
+
+
+.tr {
+  border: 1px solid orange;
+}
+
+
+.td {
+  border: 1px solid red;
+  text-align: center;
+}
+
+
+.thead {
+  border: 1px solid purple;
+}
+
+
+.tbody{
+    border : 1px solid green;
+}
+
+
+.tfoot{
+    text-align: center;
+    border : 1px solid brown;
+}

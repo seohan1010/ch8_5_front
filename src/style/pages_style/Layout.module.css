@@ -1,0 +1,20 @@
+.logo {
+  border: 1px solid black;
+  height: 60px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 60px;
+}
+.nav_bar {
+  border: 1px solid black;
+  height: 30px;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+  line-height: 30px;
+}
+
+.link {
+  margin-right: 50px;
+  text-decoration: none;
+}
