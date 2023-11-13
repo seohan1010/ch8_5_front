@@ -6,7 +6,6 @@
   text-align: center;
 }
 
-
 .table {
   align-items: center;
   width: 800px;
@@ -20,29 +19,27 @@
   text-align: center;
 }
 
-
 .tr {
   border: 1px solid orange;
 }
-
 
 .td {
   border: 1px solid red;
   text-align: center;
 }
-
+.link {
+  text-decoration: none;
+}
 
 .thead {
   border: 1px solid purple;
 }
 
-
-.tbody{
-    border : 1px solid green;
+.tbody {
+  border: 1px solid green;
 }
 
-
-.tfoot{
-    text-align: center;
-    border : 1px solid brown;
+.tfoot {
+  text-align: center;
+  border: 1px solid brown;
 }
