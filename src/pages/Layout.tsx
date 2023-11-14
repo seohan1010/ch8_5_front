@@ -1,8 +1,10 @@
 import { Fragment } from "react";
 import classes from "../style/pages_style/Layout.module.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, NavLink } from "react-router-dom";
+import Footer from "../components/Footer";
 
-//link 의 className에서 isActive일때 해당 링크가 선택되었다는 것을 알려주는 설정을 해놓자
+//Link 의 className에서 isActive일때 해당 링크가 선택되었다는 것을 알려주는 설정을 해놓자
+// Link가 아닌 NavLink이고, style={} 속성으로도 사용할수 있다고 한다. 
 const Layout = () => {
   return (
     <Fragment>
@@ -12,17 +14,33 @@ const Layout = () => {
         </Link>
       </div>
       <div className={classes.nav_bar}>
-        <Link className={classes.link} to={"/"}>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? classes.active_link : classes.link + ""
+          }
+          to={"/"}
+        >
           Home
-        </Link>
-        <Link className={classes.link} to={"/login"}>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? classes.active_link : classes.link + ""
+          }
+          to={"/login"}
+        >
           Login
-        </Link>
-        <Link className={classes.link} to={"/board"}>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? classes.active_link : classes.link + ""
+          }
+          to={"/board"}
+        >
           Board
-        </Link>
+        </NavLink>
       </div>
       <Outlet />
+      <Footer />
     </Fragment>
   );
 };
