@@ -1,0 +1,48 @@
+.main_wrap {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 25vw;
+  height: 500px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.text {
+  position: relative;
+  /* border: 1px solid black; */
+  top: 15%;
+}
+.gap {
+  height: 300px;
+}
+.input_email {
+  width: 200px;
+  height: 20px;
+}
+
+.input_password {
+  width: 200px;
+  height: 20px;
+}
+
+.button {
+  margin-top: 40px;
+  border-radius: 3px;
+  height: 26px;
+  width: 150px;
+  border-style: none;
+}
+
+.input_password {
+}
+
+.messsage_wrap {
+  position: absolute;
+  top: 20%;
+  border: 1px solid black;
+  height: 10px;
+  width: 100%;
+}
