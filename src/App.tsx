@@ -1,25 +1,19 @@
 import "./App.css";
 import AuthProvider, { useAuth } from "./components/security/AuthContext";
 
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Navigate
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import Layout from "./pages/Layout";
 import BoardPage from "./pages/BoardPage";
 import BoardDetailPage from "./pages/BoardDetailPage";
 
-
 // 여기서는 라우터를 만들어주자
 
 const TestUnit = ({ children }: any) => {
-  const authContext = useAuth();
-  console.log(authContext.isAuthenticated);
-  if (authContext.isAuthenticated) return children;
+  const email = localStorage.getItem("email");
+  console.log("email is : " + email);
+  if (email) return children;
   return <Navigate to="/login" />;
 };
 
