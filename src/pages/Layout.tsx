@@ -65,7 +65,7 @@ const Layout = () => {
         </NavLink>
       </div>
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </Fragment>
   );
 };
