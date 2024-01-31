@@ -7,15 +7,7 @@
   text-align: center;
 }
 
-.search_bar {
-  margin: auto;
-  border: 1px solid black;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 800px;
-  height: 80px;
-  border-radius: 5px;
-}
+
 
 .table {
   width: 800px;

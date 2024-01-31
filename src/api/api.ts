@@ -1,14 +1,41 @@
 import { apiClient } from "./ApiClient";
 
 type typeAction = { type: string; payload: any };
-
-const getBoardList = async (parameter:typeAction) => {
-  const url = "/board/board";
-  const boardList = await apiClient.get(url, {params:parameter.payload});
-  return await boardList.data; 
-  console.log(boardList.data);
+type searchCondition = {
+  page: number;
+  pageSize: number;
+  option: string;
+  keyword: string;
 };
 
+const getBoardList = async (parameter: typeAction) => {
+  const url = "/board/board";
+  try {
+    const boardList = await apiClient.get(url, { params: parameter.payload });
+    return await boardList.data;
+  } catch (err) {
+    return {
+      ph: "",
+      list: [],
+    };
+  }
+};
 
+const getBoardListBySearchCondition = async (body: searchCondition) => {
+  const url = "/board/search_board";
+  console.log(body);
+  try {
+    const boardList = await apiClient.post(url, {
+      data: { option: body.option, keyword: body.keyword },
+    });
+    console.log(boardList.data);
+    return await boardList.data;
+  } catch (err) {
+    return {
+      ph: "",
+      list: [],
+    };
+  }
+};
 
-export { getBoardList };
+export { getBoardList, getBoardListBySearchCondition };
