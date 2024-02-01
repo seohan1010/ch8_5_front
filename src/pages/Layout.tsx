@@ -41,7 +41,7 @@ const Layout = () => {
         >
           Home
         </NavLink>
-        {loginStatus == null ? (
+        {loginStatus === null ? (
           <NavLink
             className={({ isActive }) =>
               isActive ? classes.active_link : classes.link + ""
