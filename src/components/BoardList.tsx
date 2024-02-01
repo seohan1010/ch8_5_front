@@ -20,8 +20,8 @@ interface Navi {
 type searchCondition = {
   keyword: string;
   option: string;
-  page:number;
-  pageSize:number;
+  page: number;
+  pageSize: number;
 };
 
 const BoardList = () => {
@@ -59,11 +59,7 @@ const BoardList = () => {
     getBoardList();
   }, []);
 
-
-  const getBoardListBySearch = async()=>{
-     
-  }
-
+  const getBoardListBySearch = async () => {};
 
   // 검색창에 데이터가 있는지의 여부에 따라서 전체 데이터에서 Board 데이터를 가지고 오던가
   // 검색조건에 따른 데이터를 가지고 온다.
@@ -74,11 +70,11 @@ const BoardList = () => {
     console.log(e);
   };
 
-  const searchBoard = async(e: searchCondition) => {
-    e.page=page;
-    e.pageSize=10;
+  const searchBoard = async (e: searchCondition) => {
+    e.page = page;
+    e.pageSize = 10;
     const list = await api.getBoardListBySearchCondition(e);
-    console.log(await list.data)
+    console.log(await list.data) 
 
   };
 
