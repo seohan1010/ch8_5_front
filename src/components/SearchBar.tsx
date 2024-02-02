@@ -10,8 +10,20 @@ const SearchBar = ({ searchBoard, inputStatus, checkInput }: any) => {
   useEffect(() => {
     const inputData = input.trim();
 
+    const data = {
+      status: false,
+      option: selectedRef.current.value,
+      keyword: input,
+      page: 1,
+      pageSize: 10,
+    };
+
     if (inputData) {
       console.log("there is data");
+      data.status = true;
+      checkInput(data);
+    } else {
+      checkInput(data);
     }
   }, [inputStatus]);
 
@@ -25,8 +37,8 @@ const SearchBar = ({ searchBoard, inputStatus, checkInput }: any) => {
     const data = {
       keyword: input,
       option: selectedRef.current.value,
-      page:0,
-      pageSize:0
+      page: 0,
+      pageSize: 0,
     };
     console.log(input);
     console.log(selectedRef.current.value);
