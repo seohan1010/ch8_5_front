@@ -11,14 +11,10 @@ const Layout = () => {
   const loginStatus = localStorage.getItem("email");
 
   useEffect(() => {
-    console.log("isAuthenticated status has been changed");
-    const getToken = async () => {
-      const auth = await authContext.authStatus();
-      console.log(auth);
-    };
-    console.log(localStorage.getItem("email"));
-    getToken();
-  }, [authContext.isAuthenticated]);
+ 
+      
+
+  }, [loginStatus]);
 
   const logoutHandler = () => {
     authContext.logout();

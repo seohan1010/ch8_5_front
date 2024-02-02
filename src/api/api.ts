@@ -25,12 +25,7 @@ const getBoardListBySearchCondition = async (body: searchCondition) => {
   const url = "/board/search_board";
   console.log(body);
   try {
-    const boardList = await apiClient.post(url, {
-      option: body.option,
-      keyword: body.keyword,
-      page: body.page,
-      pageSize: body.pageSize,
-    });
+    const boardList = await apiClient.post(url, body);
     console.log(boardList.data);
     return await boardList.data;
   } catch (err) {
