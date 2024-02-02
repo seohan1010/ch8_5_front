@@ -24,6 +24,14 @@ type searchCondition = {
   pageSize: number;
 };
 
+type data = {
+  status: false;
+  option: string;
+  keyword: string;
+  page: number;
+  pageSize: number;
+};
+
 const BoardList = () => {
   const [page, setPage] = useState<number>(1);
   const [list, setList] = useState<Board[]>([]);
@@ -31,7 +39,6 @@ const BoardList = () => {
   const [showNext, setShowNext] = useState<boolean>(false);
   const [navi, setNavi] = useState<Navi[]>([]);
   const [inputStatus, setInputStatus] = useState<boolean>(false);
-  const [searchInput, setSearchInput] = useState<boolean>(false);
 
   const payload = { page: page, pageSize: 10 };
   const parameter = { type: "", payload: payload };
@@ -59,27 +66,54 @@ const BoardList = () => {
     getBoardList();
   }, []);
 
-  const getBoardListBySearch = async () => {};
+  const getBoardListBySearch = async (data: data) => {
+    console.log(data);
+    console.log(page, "from getBoardListBySearch");
+    console.log("i will get a boardList by search haha");
+    data.page = page;
+
+    const response = await api
+      .getBoardListBySearchCondition(data)
+      .catch((err) => console.log(err));
+    console.log(response, "data is ");
+  };
+  const getBoardList = async () => {
+    console.log(page);
+    console.log("i will get a boardList haha");
+
+    const response = await api
+      .getBoardList(parameter)
+      .catch((err) => console.log(err));
+
+    console.log(await response, "this is from getBoardList");
+  };
 
   // 검색창에 데이터가 있는지의 여부에 따라서 전체 데이터에서 Board 데이터를 가지고 오던가
   // 검색조건에 따른 데이터를 가지고 온다.
   const onClickHandler = (e: number) => {
+    // searchBar 컴포넌트에서 검색창에 입력된 데이터가
+    // 있는지를 확인하기 위한 로직
+    // ---> searchBar의 useEffect에서 참조하는 
+    //      값을 toggle한다. 
     setInputStatus(() => !inputStatus);
     setPage(e);
 
-    console.log(e);
+    console.log(e, "from onClickHandler ");
   };
 
   const searchBoard = async (e: searchCondition) => {
-    e.page = page;
+    e.page = 1;
     e.pageSize = 10;
     const list = await api.getBoardListBySearchCondition(e);
-    console.log(await list.data) 
-
+    console.log(await list.data);
   };
 
-  const checkInput = (e: boolean) => {
-    setSearchInput(e);
+  const checkInput = (e: data) => {
+    if (e.status) {
+      getBoardListBySearch(e);
+    } else {
+      getBoardList();
+    }
   };
 
   return (
