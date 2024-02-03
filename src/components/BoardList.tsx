@@ -32,9 +32,17 @@ type data = {
   pageSize: number;
 };
 
+type ph = {
+  beginPage: number;
+  endPage: number;
+  showNext: boolean;
+  showPrev: boolean;
+};
+
 const BoardList = () => {
   const [page, setPage] = useState<number>(1);
   const [list, setList] = useState<Board[]>([]);
+  const [ph, setPh] = useState<ph>();
   const [showBefore, setShowBefore] = useState<boolean>(false);
   const [showNext, setShowNext] = useState<boolean>(false);
   const [navi, setNavi] = useState<Navi[]>([]);
@@ -51,7 +59,7 @@ const BoardList = () => {
       console.log(beginPage, endPage, showNext, showPrev);
       setShowBefore(showBefore);
       setShowNext(showNext);
-
+      setPh(ph);
       const arr = [];
       for (let i = beginPage; i <= endPage; i++) {
         arr.push({ id: i, num: i });
@@ -93,8 +101,8 @@ const BoardList = () => {
   const onClickHandler = (e: number) => {
     // searchBar 컴포넌트에서 검색창에 입력된 데이터가
     // 있는지를 확인하기 위한 로직
-    // ---> searchBar의 useEffect에서 참조하는 
-    //      값을 toggle한다. 
+    // ---> searchBar의 useEffect에서 참조하는
+    //      값을 toggle한다.
     setInputStatus(() => !inputStatus);
     setPage(e);
 
@@ -154,9 +162,11 @@ const BoardList = () => {
         </button>
         {/* </div> */}
         <div className={classes.nav_section}>
-          {showBefore && <button>{"<"}</button>}
           <div className={classes.nav_wrap}>
             <ul className={classes.nav_ul}>
+              {showBefore && (
+                <button className={classes.showPrev}>{"<"}</button>
+              )}
               {navi.map((data: Navi) => (
                 <li
                   className={classes.nav_li}
@@ -166,11 +176,9 @@ const BoardList = () => {
                   {data.num}
                 </li>
               ))}
+              {showNext && <button className={classes.showNext}>{">"}</button>}
             </ul>
           </div>
-          {showNext && (
-            <button style={{ display: "inline-block" }}>{">"}</button>
-          )}
         </div>
       </div>
     </>
