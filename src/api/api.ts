@@ -23,10 +23,10 @@ const getBoardList = async (parameter: typeAction) => {
 
 const getBoardListBySearchCondition = async (body: searchCondition) => {
   const url = "/board/search_board";
-  console.log(body);
+
   try {
     const boardList = await apiClient.post(url, body);
-    console.log(boardList.data);
+
     return await boardList.data;
   } catch (err) {
     return {
