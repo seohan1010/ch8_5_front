@@ -47,6 +47,7 @@ const BoardList = () => {
   const [showNext, setShowNext] = useState<boolean>(false);
   const [navi, setNavi] = useState<Navi[]>([]);
   const [inputStatus, setInputStatus] = useState<boolean>(false);
+  const [totalPage, setTotalPage] = useState<number>(0);
 
   const payload = { page: page, pageSize: 10 };
   const parameter = { type: "", payload: payload };
@@ -60,6 +61,7 @@ const BoardList = () => {
       setShowBefore(showBefore);
       setShowNext(showNext);
       setPh(ph);
+      setTotalPage(ph.totalPage);
       const arr = [];
       for (let i = beginPage; i <= endPage; i++) {
         arr.push({ id: i, num: i });
@@ -83,8 +85,13 @@ const BoardList = () => {
     const response = await api
       .getBoardListBySearchCondition(data)
       .catch((err) => console.log(err));
+
+    const { list, ph } = response;
+    setList(list);
+
     console.log(response, "data is ");
   };
+
   const getBoardList = async () => {
     console.log(page);
     console.log("i will get a boardList haha");
@@ -92,6 +99,18 @@ const BoardList = () => {
     const response = await api
       .getBoardList(parameter)
       .catch((err) => console.log(err));
+
+    const { list, ph } = response;
+    setList(list);
+    setPage(ph.page);
+    setShowBefore(ph.showPrev);
+    setShowNext(ph.showNext);
+    setTotalPage(ph.totalPage);
+    const arr = [];
+    for (let i = ph.beginPage; i <= ph.endPage; i++) {
+      arr.push({ id: i, num: i });
+    }
+    setNavi(arr);
 
     console.log(await response, "this is from getBoardList");
   };
@@ -112,8 +131,23 @@ const BoardList = () => {
   const searchBoard = async (e: searchCondition) => {
     e.page = 1;
     e.pageSize = 10;
-    const list = await api.getBoardListBySearchCondition(e);
-    console.log(await list.data);
+    const response = await api.getBoardListBySearchCondition(e);
+
+    // 응답에서 list와 ph관련 정보를
+    // 가져와서 state에 할당
+    const { list, ph } = response;
+    setList(list);
+    setPage(ph.page);
+    setShowBefore(ph.showPrev);
+    setShowNext(ph.showNext);
+    setTotalPage(ph.totalPage);
+    const arr = [];
+    for (let i = ph.beginPage; i <= ph.endPage; i++) {
+      arr.push({ id: i, num: i });
+    }
+    setNavi(arr);
+    console.log(ph);
+    console.log(list);
   };
 
   const checkInput = (e: data) => {
@@ -124,6 +158,21 @@ const BoardList = () => {
     }
   };
 
+  const showArrow = (e: string) => {
+    if (e === "before") {
+      if (ph!.beginPage !== 1) {
+        setPage(ph!.beginPage - 1);
+        getBoardList();
+      }
+    } else if (e === "next") {
+      if (ph!.endPage !== totalPage) {
+        console.log("ph!.endPage !== totalPage");
+        setPage(ph!.endPage + 1);
+        getBoardList();
+      }
+    }
+  };
+  console.log(page,"page is :")
   return (
     <>
       <div className={classes.table_wrap}>
@@ -165,7 +214,12 @@ const BoardList = () => {
           <div className={classes.nav_wrap}>
             <ul className={classes.nav_ul}>
               {showBefore && (
-                <button className={classes.showPrev}>{"<"}</button>
+                <button
+                  className={classes.showPrev}
+                  onClick={() => showArrow("before")}
+                >
+                  {"<"}
+                </button>
               )}
               {navi.map((data: Navi) => (
                 <li
@@ -176,7 +230,14 @@ const BoardList = () => {
                   {data.num}
                 </li>
               ))}
-              {showNext && <button className={classes.showNext}>{">"}</button>}
+              {showNext && (
+                <button
+                  className={classes.showNext}
+                  onClick={() => showArrow("next")}
+                >
+                  {">"}
+                </button>
+              )}
             </ul>
           </div>
         </div>
