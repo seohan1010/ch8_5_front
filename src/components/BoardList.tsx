@@ -158,6 +158,8 @@ const BoardList = () => {
     }
   };
 
+
+  // after setPage the state doesn't change
   const showArrow = (e: string) => {
     if (e === "before") {
       if (ph!.beginPage !== 1) {
