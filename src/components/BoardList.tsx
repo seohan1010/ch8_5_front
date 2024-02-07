@@ -92,8 +92,12 @@ const BoardList = () => {
     console.log(response, "data is ");
   };
 
-  const getBoardList = async () => {
-    console.log(page);
+  const getBoardList = async (e: number) => {
+    console.log(e);
+
+    if (e !== 0) {
+      parameter.payload.page = e;
+    }
     console.log("i will get a boardList haha");
 
     const response = await api
@@ -102,6 +106,7 @@ const BoardList = () => {
 
     const { list, ph } = response;
     setList(list);
+    setPh(ph);
     setPage(ph.page);
     setShowBefore(ph.showPrev);
     setShowNext(ph.showNext);
@@ -154,27 +159,26 @@ const BoardList = () => {
     if (e.status) {
       getBoardListBySearch(e);
     } else {
-      getBoardList();
+      getBoardList(0);
     }
   };
-
 
   // after setPage the state doesn't change
   const showArrow = (e: string) => {
     if (e === "before") {
       if (ph!.beginPage !== 1) {
         setPage(ph!.beginPage - 1);
-        getBoardList();
+        getBoardList(ph!.beginPage - 1);
       }
     } else if (e === "next") {
       if (ph!.endPage !== totalPage) {
         console.log("ph!.endPage !== totalPage");
         setPage(ph!.endPage + 1);
-        getBoardList();
+        getBoardList(ph!.endPage + 1);
       }
     }
   };
-  console.log(page,"page is :")
+  console.log(page, "page is :");
   return (
     <>
       <div className={classes.table_wrap}>
