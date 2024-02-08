@@ -202,7 +202,7 @@ const BoardList = () => {
               <tr key={data.bno}>
                 <td>{data.writer}</td>
                 <td className={classes.td_link}>
-                  <Link to={""}>{data.title}</Link>
+                  <Link to={"board/"+data.bno}>{data.title}</Link>
                 </td>
                 <td>{data.writeDate}</td>
               </tr>
