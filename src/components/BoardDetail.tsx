@@ -7,7 +7,7 @@ const BoardDetail = () => {
   const params = useParams();
 
   useEffect(() => {}, []);
-
+    console.log(params.bno)
   return (
     <div className={classes.board_detail_wrap}>
 {/* relative의 default 값이 route인거 같다. */}
