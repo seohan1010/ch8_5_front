@@ -13,7 +13,7 @@ import BoardDetailPage from "./pages/BoardDetailPage";
 const TestUnit = ({ children }: any) => {
   const email = localStorage.getItem("email");
   console.log("email is : " + email);
-  if (email) return children;
+  if (true) return children;
   return <Navigate to="/login" />;
 };
 
