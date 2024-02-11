@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import Layout from "./pages/Layout";
 import BoardPage from "./pages/BoardPage";
 import BoardDetailPage from "./pages/BoardDetailPage";
+import BoardCommnet from './components/BoardComment';
 
 // 여기서는 라우터를 만들어주자
 
@@ -25,6 +26,8 @@ function App() {
           <Route element={<Layout />}>
             <Route path={"/"} element={<HomePage />} />
             <Route path={"/login"} element={<LoginPage />} />
+            <Route path={'/test'} element={<div>this is test page</div>}></Route>
+            <Route path={'/comment/:pbno'} element={<BoardCommnet />}></Route>
             <Route
               path={"/board"}
               element={
