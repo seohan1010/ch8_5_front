@@ -17,7 +17,7 @@ return(
             <div className={classes.comment_header}>this is for header. bno is {bno}</div>
             <div className={classes.comment_content}> this is for content</div>
             <button className={classes.del_btn}>delete</button>
-            {true?<button className={classes.mod_btn}>modify</button>:<button>save</button>}
+            {true?<button className={classes.mod_btn}>modify</button>:<button className={classes.save_btn}>save</button>}
         </div>
 
 
