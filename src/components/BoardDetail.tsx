@@ -25,9 +25,14 @@ const BoardDetail = () => {
       <div className={classes.write_date} ></div>
       <div className={classes.content}> </div>
 
+        
 
       <BoardComment bno={params.bno} />
-      
+      <BoardComment bno={params.bno} />
+      <BoardComment bno={params.bno} />
+
+        
+
     </div>
   )
 };
