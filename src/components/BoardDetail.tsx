@@ -1,4 +1,4 @@
-import { useParams,Link } from "react-router-dom";
+9import { useParams,Link } from "react-router-dom";
 import classes from "../style/pages_style/boardDetail.module.css";
 import { useEffect } from "react";
 import BoardComment  from "./BoardComment";
@@ -30,8 +30,9 @@ const BoardDetail = () => {
       <BoardComment bno={params.bno} />
       <BoardComment bno={params.bno} />
       <BoardComment bno={params.bno} />
+      <BoardComment bno={params.bno} />
+      
 
-        
 
     </div>
   )
