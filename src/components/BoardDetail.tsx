@@ -30,6 +30,8 @@ const BoardDetail = () => {
       <BoardComment bno={params.bno} />
       <BoardComment bno={params.bno} />
       <BoardComment bno={params.bno} />
+      <BoardComment bno={params.bno} />
+      
 
 
     </div>
