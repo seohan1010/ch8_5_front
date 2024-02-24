@@ -1,4 +1,4 @@
-9import { useParams,Link } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import classes from "../style/pages_style/boardDetail.module.css";
 import { useEffect } from "react";
 import BoardComment  from "./BoardComment";
