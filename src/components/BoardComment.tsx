@@ -5,6 +5,9 @@ import { useEffect } from 'react';
 const BoardComment = ({bno}:any)=>{
     
     console.log('bno from component is :',bno)
+
+console.log('this is for test');
+
 useEffect(()=>{
    console.log('bno is ',bno);
 },[bno]);
