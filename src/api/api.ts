@@ -36,4 +36,19 @@ const getBoardListBySearchCondition = async (body: searchCondition) => {
   }
 };
 
-export { getBoardList, getBoardListBySearchCondition };
+
+const getBoardDetail = async(bno : string)=>{
+  const url = "/board/board/detail";
+
+  try{
+  const boardDetail = await apiClient.get(url, {params: {
+    bno: bno
+  }});
+  return await boardDetail.data;
+}catch(err){
+  console.log('err is : ',err);
+}
+
+}
+
+export { getBoardList, getBoardListBySearchCondition,getBoardDetail };

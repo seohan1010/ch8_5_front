@@ -14,7 +14,7 @@ import BoardCommnet from './components/BoardComment';
 const TestUnit = ({ children }: any) => {
   const email = localStorage.getItem("email");
   console.log("email is : " + email);
-  if (true) return children;
+  if (email) return children;
   return <Navigate to="/login" />;
 };
 
