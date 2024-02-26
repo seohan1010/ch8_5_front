@@ -19,8 +19,13 @@
   text-align: center;
 }
 
+tr:hover{
+  background-color: grey;
+}
+
 .tr {
   border: 1px solid orange;
+  
 }
 
 .td {
