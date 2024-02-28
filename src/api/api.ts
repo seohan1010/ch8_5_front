@@ -1,5 +1,8 @@
 import { apiClient } from "./ApiClient";
 
+
+// board crud 
+
 type typeAction = { type: string; payload: any };
 type searchCondition = {
   page: number;
@@ -51,4 +54,24 @@ const getBoardDetail = async(bno : string)=>{
 
 }
 
-export { getBoardList, getBoardListBySearchCondition,getBoardDetail };
+
+
+
+// comment crud 
+
+const getCommentList = async(pbno:number)=>{
+
+  const url = "/comment/comment";
+
+try{
+
+  const commentList =   await apiClient.get(url,{params:{pbno:pbno}});
+  console.log(commentList.data);
+  return commentList.data;
+}catch(err){
+  console.log(err)
+}
+
+}
+
+export { getBoardList, getBoardListBySearchCondition,getBoardDetail,getCommentList };
