@@ -41,8 +41,6 @@ const BoardDetail = () => {
   }, []);
 
 
-
-
   return (
     <div className={classes.board_detail_wrap}>
         {/* relative의 default 값이 route인거 같다. */}
@@ -52,13 +50,12 @@ const BoardDetail = () => {
       relative='path'
     >Back to board</Link>
     <br/>
-
+      {board?.content}
       <div className={classes.text_bno}>{board?.bno}</div>
       <div className={classes.title} >{board?.title}</div>
       <div className={classes.writer} >{board?.writer}</div>
       <div className={classes.write_date} >{board?.writeDate}</div>
       <div className={classes.content}> {board?.content}</div>
-
       <BoardComment bno={params.bno} />
   
       
