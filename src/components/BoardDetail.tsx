@@ -2,7 +2,7 @@ import { useParams,Link } from "react-router-dom";
 import classes from '../style/pages_style/boardDetail.module.css';
 import { useEffect, useState } from "react";
 import BoardComment  from "./BoardComment";
-import { getBoardDetail } from "../api/api";
+import { getBoardDetail, getCommentList } from "../api/api";
 
 
 interface board{
@@ -18,10 +18,22 @@ interface board{
 }
 
 
+interface comment{
+  cno:number;
+  pbno:number;
+  commenter:string;
+  comment:string;
+  registerDate:string;
+  updateDate:string;
+  deletedYn:string;
+}
+
+
 
 const BoardDetail = () => {
   const params = useParams();
   const [board ,setBoard] = useState<board>();
+  const [comment,setComment] = useState<comment[]>([]);
 
   useEffect(() => {
 
@@ -37,6 +49,15 @@ const BoardDetail = () => {
     boardDetail();
 
     
+    const retrieveComment = async()=>{
+
+      const commentList = await getCommentList(bno);
+
+      console.log(commentList);
+      setComment(commentList);
+    }
+
+      retrieveComment();
 
   }, []);
 
@@ -56,9 +77,9 @@ const BoardDetail = () => {
       <div className={classes.writer} >{board?.writer}</div>
       <div className={classes.write_date} >{board?.writeDate}</div>
       <div className={classes.content}> {board?.content}</div>
-      <BoardComment bno={params.bno} />
-  
-      
+
+
+      {comment.map((comment :comment)=><BoardComment data={comment} />)}
 
 
     </div>
