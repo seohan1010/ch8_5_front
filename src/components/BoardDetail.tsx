@@ -14,7 +14,7 @@ interface board{
   viewCnt : number;
   writeDate : string;
   writer : string;
-  
+
 }
 
 
@@ -32,7 +32,7 @@ interface comment{
 
 const BoardDetail = () => {
   const params = useParams();
-  const [board ,setBoard] = useState<board>();
+  const [board ,setBoard] = useState<any>();
   const [comment,setComment] = useState<comment[]>([]);
 
   useEffect(() => {
@@ -44,6 +44,7 @@ const BoardDetail = () => {
       const data = await getBoardDetail(bno);
       setBoard(data.board);
       console.log("data is ",data);
+      console.log("board data in object is ", board.board);
       
     }
     boardDetail();
@@ -57,7 +58,6 @@ const BoardDetail = () => {
       retrieveComment();
 
   }, []);
-  // console.log("board is ",board!.content);
 
   return (
     <div className={classes.board_detail_wrap}>

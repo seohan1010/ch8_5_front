@@ -19,7 +19,7 @@ function AuthProvider({ children }: any) {
 
   async function login(email: any, password: any) {
     const baToken = "Basic " + window.btoa(username + ":" + password);
-
+ 
     try {
       const response = await userLogin(email, password);
       console.log(response.config);
@@ -31,6 +31,8 @@ function AuthProvider({ children }: any) {
         localStorage.setItem("email", email);
         console.log(localStorage.getItem("email"));
 
+        // 요청을 보내기 전에 사용할수 있는 인터셉터는 
+        // 요긴하게 사용할수 있을거 같다. 
         apiClient.interceptors.request.use((config: any) => {
           console.log("intercepting and adding a header");
           config.headers.Authorization = "12345";

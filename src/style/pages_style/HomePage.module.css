@@ -1,17 +1,4 @@
-.logo_area {
-  background-color: indianred;
-  height: 5vh;
-}
 
-.header {
-  margin-top: 10px;
-  background-image: linear-gradient();
-  background-size: cover;
-  background-position: center;
-  background-color: rgb(48, 181, 237);
-  height: 8vh;
-  min-height: 80px;
-}
 
 .ul {
   float: right;
@@ -32,11 +19,11 @@
 }
 
 .body {
-  margin-top: 10px;
-  position: relative;
-  width: 100%;
-  height: 60vh;
+  top: 50px;
+  width: 100vw;
+  height: 100vh;
   background-color: orange;
+
 }
 
 .left_div {
