@@ -1,0 +1,35 @@
+
+
+.chatting__block {
+    position: relative;
+    width: 55vw; 
+    min-width: 244px;
+    height:100px; 
+    color: white; 
+    border:1px solid green; 
+    margin-top:3px; 
+    margin-bottom: 3px; 
+}
+
+
+.human__inner {
+    position: absolute;
+    word-wrap: break-word; 
+    padding: 10px;
+    border:1px solid white;
+    width: 40vw;
+    min-width: 196px;
+    right: 0;
+}
+
+
+
+.chatbot__inner {
+    position: absolute;
+    word-wrap: break-word; 
+    padding: 10px;
+    border:1px solid white;
+    width: 40vw;
+    min-width: 196px;
+    left: 0;
+}

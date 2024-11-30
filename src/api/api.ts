@@ -74,4 +74,24 @@ try{
 
 }
 
-export { getBoardList, getBoardListBySearchCondition,getBoardDetail,getCommentList };
+const registerBoard = async (title : any, writer : string, content: string) => {
+  const url = "/board/board";
+  
+  return;
+  try {
+  const registerResponse = await apiClient.post(url,{writer: writer, title: title, content: content} )
+    const status = registerResponse.status;
+    console.log(status);
+    if (status === 200) {
+      console.log(status);
+      return {status: 200};
+    }else {
+      throw Error();
+    }
+  } catch(err) {
+    console.log("error occured at register board");
+  }
+}
+
+
+export { getBoardList, getBoardListBySearchCondition,getBoardDetail,getCommentList,registerBoard };

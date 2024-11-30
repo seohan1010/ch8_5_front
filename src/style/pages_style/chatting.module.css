@@ -1,0 +1,12 @@
+
+
+
+.chatting__wrap {
+    width: 60vw;
+    min-width: 300px;
+    height: 280px;
+    background-color: rgb(15, 10, 10);
+    margin:auto;
+    overflow: hidden;
+    overflow-y: scroll;
+}   

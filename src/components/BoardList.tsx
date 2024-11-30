@@ -211,7 +211,7 @@ const BoardList = () => {
         </table>
         {/* <div className={classes.write_btn_wrap}> */}
         <button className={classes.write_btn}>
-          <Link className={classes.btn_link} to={""}>
+          <Link className={classes.btn_link} to={"/writeboard"}>
             글쓰기{" "}
           </Link>
         </button>

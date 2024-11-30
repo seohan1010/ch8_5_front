@@ -8,6 +8,8 @@ import Layout from "./pages/Layout";
 import BoardPage from "./pages/BoardPage";
 import BoardDetailPage from "./pages/BoardDetailPage";
 import BoardCommnet from './components/BoardComment';
+import WriteBoardPage from "./pages/WriteBoardPage";
+import ChattingPage from "./pages/ChattingPage";
 
 // 여기서는 라우터를 만들어주자
 
@@ -27,7 +29,15 @@ function App() {
             <Route path={"/"} element={<HomePage />} />
             <Route path={"/login"} element={<LoginPage />} />
             <Route path={'/test'} element={<div>this is test page</div>}></Route>
-            <Route path={'/comment/:pbno'} element={<BoardCommnet />}></Route>
+            <Route  path={"/writeboard"} 
+                element={
+                  <TestUnit>
+                      <WriteBoardPage />
+                  </TestUnit>
+                }
+                />
+                <Route path={"/chat"} element={ <TestUnit> <ChattingPage/></TestUnit>}/>
+            <Route path={'/comment/:pbno'} element={<TestUnit><BoardCommnet/></TestUnit>}></Route>
             <Route
               path={"/board"}
               element={
@@ -44,15 +54,6 @@ function App() {
                 </TestUnit>
               }
             >
-              <Route index element={<h2>Detailed Info goes here</h2>} />
-              <Route
-                path={"detail2"}
-                element={<h2>Detailed Info2 goes here</h2>}
-              />
-              <Route
-                path={"detail3"}
-                element={<h2>Detailed Info3 goes here</h2>}
-              />
             </Route>
           </Route>
         </Routes>
