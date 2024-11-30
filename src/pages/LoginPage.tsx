@@ -29,11 +29,11 @@ const LoginPage = () => {
   };
 
   
+  
 
   return (
     <>
       <div style={{ textAlign: "center" }}>
-        this is login page
         <div className={classes.main_wrap}>
           <div className={classes.text}>Login</div>
           <div className={classes.messsage_wrap}>

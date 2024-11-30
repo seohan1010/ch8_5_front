@@ -14,7 +14,7 @@ interface board{
   viewCnt : number;
   writeDate : string;
   writer : string;
-  
+
 }
 
 
@@ -32,35 +32,32 @@ interface comment{
 
 const BoardDetail = () => {
   const params = useParams();
-  const [board ,setBoard] = useState<board>();
+  const [board ,setBoard] = useState<any>();
   const [comment,setComment] = useState<comment[]>([]);
 
   useEffect(() => {
-
+    console.log(params.bno);
     const bno : any = params.bno;
     
     const boardDetail = async ()=>{
 
       const data = await getBoardDetail(bno);
-      console.log(data);
-      setBoard(data);
+      setBoard(data.board);
+      console.log("data is ",data);
+      console.log("board data in object is ", board.board);
       
     }
     boardDetail();
 
     
     const retrieveComment = async()=>{
-
       const commentList = await getCommentList(bno);
-
-      console.log(commentList);
       setComment(commentList);
     }
 
       retrieveComment();
 
   }, []);
-
 
   return (
     <div className={classes.board_detail_wrap}>
@@ -71,13 +68,14 @@ const BoardDetail = () => {
       relative='path'
     >Back to board</Link>
     <br/>
+
       {board?.content}
       <div className={classes.text_bno}>{board?.bno}</div>
       <div className={classes.title} >{board?.title}</div>
       <div className={classes.writer} >{board?.writer}</div>
       <div className={classes.write_date} >{board?.writeDate}</div>
       <div className={classes.content}> {board?.content}</div>
-
+      <p style={{"backgroundColor":"red"}}>{1234}</p>
 
       {comment.map((comment :comment)=><BoardComment data={comment} />)}
 

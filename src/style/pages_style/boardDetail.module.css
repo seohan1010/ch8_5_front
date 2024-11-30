@@ -6,9 +6,16 @@
   margin: auto;
   width: 500px;
   height: 600px;
+  /* text-align:center; */
 }
 
 
+.to_prev {
+  text-decoration: none; 
+  display: block;
+  text-align: center;
+  border: 2px solid black;
+}
 
 .title{
 
@@ -31,7 +38,7 @@ margin:auto;
 }
 
 .writer{
-
+color:black;
 
 height: 40px ;
 margin:auto;

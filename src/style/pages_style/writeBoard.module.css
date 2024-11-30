@@ -1,0 +1,44 @@
+.writeboard__wrap{
+        background-color: rgb(153, 220, 153);
+        width:40%;
+        min-width: 40%;
+        text-align: center;
+        margin: auto;
+        margin-top: 100px;
+        height:60vh;
+        display: inline-flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        border-radius: 2%;
+  
+    }
+
+    .input__title {
+        
+    }
+
+    .input__writer {
+        width: 200px;
+        text-align: center;
+    }
+
+
+    .input__content {
+
+        height: 300px;
+        width: 350px;
+        resize: none;
+
+
+    }
+
+    .submit__btn {
+
+        margin-top : 10px;
+        align-self: end;
+        margin-right:7px;
+        margin-bottom: 7px;
+        border-radius: 3%;
+        border-style: none;
+        
+    }
