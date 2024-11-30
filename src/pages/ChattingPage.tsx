@@ -1,12 +1,13 @@
-
+import classes from '../style/pages_style/chattingPage.module.css';
+import Chatting from '../components/Chatting';
 
 const ChattingPage = () => {
 
 
     return (
-        <>
-            this is chatting page;
-        </>
+        <div className={classes.mainpage__wrap}>
+                <Chatting></Chatting>
+        </div>
     )
 }
 

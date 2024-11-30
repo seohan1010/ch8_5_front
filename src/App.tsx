@@ -36,8 +36,8 @@ function App() {
                   </TestUnit>
                 }
                 />
-                <Route path={"/chat"} element={ <TestUnit> <ChattingPage /> </TestUnit>}/>
-            <Route path={'/comment/:pbno'} element={<TestUnit><BoardCommnet /></TestUnit>}></Route>
+                <Route path={"/chat"} element={ <TestUnit> <ChattingPage/></TestUnit>}/>
+            <Route path={'/comment/:pbno'} element={<TestUnit><BoardCommnet/></TestUnit>}></Route>
             <Route
               path={"/board"}
               element={

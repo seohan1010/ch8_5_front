@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import classes from "../style/pages_style/HomePage.module.css";
 import Footer from "../components/Footer";
 const HomePage = () => {
@@ -8,7 +7,7 @@ const HomePage = () => {
         <div className={classes.left_div}></div>
         <div className={classes.right_div}></div>
       </div>
-      <Footer></Footer>
+      <Footer/>
     </>
   );
 };
