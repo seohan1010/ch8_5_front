@@ -13,7 +13,7 @@ const LoginPage = () => {
   const submitHanlder = async () => {
     const emailref = emailRef.current?.value;
     const passwordref = passwordRef.current?.value;
-
+    console.log(authContext.authStatus,'?')
     if (emailref?.trim().length === 0 || passwordref?.trim().length === 0) {
       return;
     }
