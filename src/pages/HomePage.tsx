@@ -1,5 +1,6 @@
 import classes from "../style/pages_style/HomePage.module.css";
 import Footer from "../components/Footer";
+import Layout from '../pages/Layout'
 const HomePage = () => {
   return (
     <>
