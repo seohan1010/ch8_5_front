@@ -57,7 +57,7 @@ function AuthProvider({ children }: any) {
     localStorage.removeItem("email");
   }
 
-  const authStatus = async () => {
+  const authStatus = () => {
     const token = localStorage.getItem("email");
     console.log("token from authStatus is : ", token);
     return token;

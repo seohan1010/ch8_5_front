@@ -15,14 +15,15 @@ const Layout = () => {
   useEffect(() => {
  
        console.log("loginstatus is changed in layout component",loginStatus);
-
-  }, [loginStatus]);
+       console.log('authStatus is : ', authContext.authStatus());
+       console.log('authContext is :',authContext);
+  }, [authContext.authStatus()]);
 
   const logoutHandler = () => {
     authContext.logout();
     // 여기서는 강제로 윈도우를 reload 해주어야 한다.
     // 그렇지 않으면 layout의 logout 문구가 login으로 변경이 되지 않는다. 
-    window.location.reload()
+    window.location.reload();
     redirect("/");
   };
 
@@ -58,7 +59,7 @@ const Layout = () => {
         >
           Home
         </NavLink>
-        {!localStorage.getItem("email") ? (
+        {!localStorage.getItem('email') ? (
           <NavLink
             className={({ isActive }) =>
               isActive ? classes.active_link : classes.link + ""

@@ -7,8 +7,8 @@ const LoginPage = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-
   const authContext = useAuth();
+
   const navigate = useNavigate();
   const submitHanlder = async () => {
     const emailref = emailRef.current?.value;
