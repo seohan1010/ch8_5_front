@@ -1,16 +1,12 @@
-import {useState} from 'react';
 import classes from '../style/pages_style/chattingBlock.module.css'
 
-interface Element {
-    index: Number,
-    isHuman: Number;
-}
+
 
 const ChattingBlock = (props: any) => {
 
 
-        const bool = props.arr.isHuman === 1;
-        console.log(props.arr.isHuman);
+        const bool = props.obj.isHuman === 1;
+        console.log(props.obj.isHuman);
         console.log(bool);
 
 
@@ -18,7 +14,7 @@ const ChattingBlock = (props: any) => {
         <>
             <div className={classes.chatting__block}>
                 <div className={bool ? classes.human__inner : classes.chatbot__inner}>
-                this is chatting block  this is chatting block   this is chatting block  this is chatting block 
+                            {props.obj.message}
                 </div>
             </div>
         </>
